@@ -1,33 +1,48 @@
 <template>
-  <div class="py-4">
-    <h1>Brukerer</h1>
-
-    <div
-      v-for="user in users"
-      v-bind:key="user.id"
-      class="list-group d-flex align-items-center"
-    >
-      <User v-bind:user="user" />
+  <div>
+    <h1 v-once>Brukerer</h1>
+    <div v-for="user in users" :key="user.id" class="list-group d-flex align-items-center">
+      <TheUser :user="user" keep-alive />
     </div>
   </div>
 </template>
 
 <script>
 import axios from "axios";
-import User from "../components/User";
+import TheUser from "../components/TheUser";
 export default {
   name: "Users",
   components: {
-    User,
+    TheUser
   },
   data() {
     return { users: [] };
   },
   created() {
+    // console.log("created");
     axios
       .get(`https://jsonplaceholder.typicode.com/users`)
-      .then((res) => (this.users = res.data))
-      .catch((err) => console.log(err));
-  },
+      .then(res => (this.users = res.data))
+      .catch(err => console.log(err));
+  }
+  // beforeMount() {
+  //   console.log("beforeMount");
+  // },
+  // mounted() {
+  //   console.log("mounted");
+  // },
+  // beforeUpdate() {
+  //   console.log("beforeUpdate");
+  // },
+  // updated() {
+  //   console.log("updated");
+  // },
+  // beforeDestroy() {
+  //   console.log("beforeDestroy");
+  // },
+  // destroyed() {
+  //   console.log("destroyed");
+  // },
 };
 </script>
+

@@ -1,20 +1,20 @@
 <template>
   <div id="app">
-    <Nav />
+    <TheNavigation />
     <div class="main-content">
-      <router-view />
+      <router-view :key="$route.path" />
     </div>
   </div>
 </template>
 
 <script>
-import Nav from "./components/Nav.vue";
+import TheNavigation from "./components/TheNavigation.vue";
 import "./theme.css";
 export default {
   name: "App",
   components: {
-    Nav,
-  },
+    TheNavigation
+  }
 };
 </script>
 

@@ -6,6 +6,7 @@
         <div class="nav-links">
           <router-link class="nav-link" to="/">Home</router-link>
           <router-link class="nav-link" to="/brukere">Brukere</router-link>
+          <router-link class="nav-link" to="/meld-opp">Meld opp</router-link>
         </div>
       </div>
       <form class="form-inline my-2 my-lg-0">

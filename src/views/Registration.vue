@@ -2,8 +2,8 @@
   <div>
     <h1 v-once>Registrer</h1>
     <div class="register">
-      <TheRegistration :unregisterdUsers="unregisterdUsers" />
-      <TheRegistrations :registrations="registrations" />
+      <TheRegistration :unregisterdUsers="unregisterdUsers" v-on:register-user="registerUser" />
+      <TheRegistrations :registrations="registrations" v-on:unregister-user="unregisterUser" />
     </div>
   </div>
 </template>
@@ -26,6 +26,16 @@ export default {
       return this.users.filter(
         user => !this.registrations.find(u => u.id === user.id)
       );
+    }
+  },
+  methods: {
+    registerUser(user) {
+      this.users = this.users.filter(u => user.id !== u.id);
+      this.registrations.push(user);
+    },
+    unregisterUser(user) {
+      this.registrations = this.registrations.filter(u => user.id !== u.id);
+      this.users.push(user);
     }
   },
   created() {

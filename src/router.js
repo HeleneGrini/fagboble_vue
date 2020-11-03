@@ -2,7 +2,7 @@ import Vue from "vue";
 import Router from "vue-router";
 import Home from "./views/Home";
 import Users from "./views/Users";
-import Register from "./views/Register";
+import Registration from "./views/Registration";
 
 Vue.use(Router);
 
@@ -15,8 +15,8 @@ export default new Router({
     },
     {
       path: "/meld-opp",
-      name: "register",
-      component: Register,
+      name: "registration",
+      component: Registration,
     },
     {
       path: "/brukere",
